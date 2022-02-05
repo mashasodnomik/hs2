@@ -20,7 +20,7 @@ def odd_even(number):
 
 @app.route('/news')
 def news():
-    with open("news.json", "rt", encoding="utf8") as f:
+    with open("news.json", "r", encoding="utf8") as f:
         news_list = json.load(f)
     print(news_list)
     return render_template('news.html', news=news_list)
