@@ -1,6 +1,6 @@
 import json
 
-from flask import Flask, render_template
+from flask import Flask, render_template, url_for
 
 app = Flask(__name__)
 
@@ -29,6 +29,22 @@ def news():
 @app.route("/queue")
 def queue():
     return render_template("queue.html", title="Очередь")
+
+
+@app.route("/training/<prof>")
+def training(prof):
+    if "инженер" in prof.lower() or "строитель" in prof.lower():
+        return render_template("training.html",
+                               title="Тренировка",
+                               training_name="Инженерные тренажеры",
+                               path_to_image=url_for("static",
+                                                     filename="img/Инженерные тренажеры.jpg"))
+    else:
+        return render_template("training.html",
+                               title="Тренировка",
+                               training_name="Научные симуляторы",
+                               path_to_image=url_for("static",
+                                                     filename="img/Научные симуляторы.jpg"))
 
 
 if __name__ == '__main__':
