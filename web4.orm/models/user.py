@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from sqlalchemy import Column, DateTime, Integer, String
 from .db_session import SqlAlchemyBase
 
@@ -10,4 +12,4 @@ class User(SqlAlchemyBase):
     about = Column(String)
     email = Column(String, unique=True)
     hashed_password = Column(String)
-    created_date = Column(DateTime)
+    created_date = Column(DateTime, default=datetime.now)
