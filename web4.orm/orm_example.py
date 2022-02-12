@@ -20,3 +20,8 @@ session.commit()
 users = session.query(User).all()
 for user in users:
     print(user.name, user.email, user.created_date, user.about)
+
+
+# пример с where
+user = session.query(User).filter(User.id == 2)[0]
+print(user.name, user.email, user.created_date, user.about)
