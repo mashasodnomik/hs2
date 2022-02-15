@@ -35,3 +35,10 @@ session.add(news)
 session.commit()
 """
 
+user = session.query(User).first()
+news = session.query(News).first()
+# 3 строки дделают одно и то же
+# user.news.append(news)
+# news.user = user
+news.user_id = user.id
+session.commit()
