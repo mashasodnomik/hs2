@@ -14,7 +14,7 @@ def global_init(connection_string):
     if __factory:
         return
 
-    engine = sa.create_engine(connection_string)
+    engine = sa.create_engine(connection_string, echo=True)
     __factory = orm.sessionmaker(bind=engine)
 
     from . import __all_models

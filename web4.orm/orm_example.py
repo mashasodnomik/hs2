@@ -16,6 +16,7 @@ user.email = "email2@gmail.com"
 session.add(user)
 session.commit()
 """
+"""
 # получить всех пользователей
 users = session.query(User).all()
 for user in users:
@@ -25,3 +26,12 @@ for user in users:
 # пример с where
 user = session.query(User).filter(User.id == 2)[0]
 print(user.name, user.email, user.created_date, user.about)
+"""
+"""
+# создание новости
+data = {"title": "Новость 1", "content": "Тело новости 1"}
+news = News(**data)
+session.add(news)
+session.commit()
+"""
+
