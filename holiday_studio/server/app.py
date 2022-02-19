@@ -1,5 +1,5 @@
 from flask import Flask
-from models.db_session import create_session, global_init
+from models import global_init
 from routers import employee_router
 
 
@@ -8,10 +8,10 @@ app.config["SECRET_KEY"] = 'lyceum1perm'
 app.register_blueprint(employee_router)
 
 
+def run_server(port=5000, host="127.0.0.1"):
+    global_init("sqlite:///../database/holiday.db")
+    app.run(host=host, port=port)
 
-def main():
-    global_init("sqlite:///../db/holiday.db")
-    app.run()
 
 if __name__ == "__main__":
-    main()
+    run_server()
