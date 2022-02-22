@@ -11,4 +11,4 @@ class EmployeeOrder(SqlAlchemyBase):
     id_order = Column(ForeignKey('Order.id'), nullable=False)
 
     employee = relationship('Employee')
-    Order = relationship('Order')
+    order = relationship('Order')
