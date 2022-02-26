@@ -7,5 +7,6 @@ class Client(SqlAlchemyBase):
 
     id = Column(Integer, primary_key=True, autoincrement=True)
     full_name = Column(String, nullable=False)
+    age = Column(Integer, nullable=True)
     phone = Column(String)
     email = Column(String, unique=True)

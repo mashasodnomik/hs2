@@ -8,7 +8,7 @@ class EmployeeOrder(SqlAlchemyBase):
 
     id = Column(Integer, primary_key=True, autoincrement=True)
     id_employee = Column(ForeignKey('employee.id'), nullable=False)
-    id_order = Column(ForeignKey('Order.id'), nullable=False)
+    id_order = Column(ForeignKey('order.id'), nullable=False)
 
     employee = relationship('Employee')
     order = relationship('Order')

@@ -3,7 +3,7 @@ from .db_session import SqlAlchemyBase
 
 
 class Order(SqlAlchemyBase):
-    __tablename__ = 'Order'
+    __tablename__ = 'order'
 
     id = Column(Integer, primary_key=True, autoincrement=True)
     price = Column(Float, nullable=False)
