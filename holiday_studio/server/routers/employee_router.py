@@ -3,6 +3,8 @@ from models import AlchemyEncoder, Order, EmployeeOrder
 from models import Employee, create_session
 import json
 
+from flask_login import login_required, current_user
+
 
 router = Blueprint("employee_api",
                    __name__,
@@ -25,6 +27,7 @@ def get_employee(employee_id):
 
 
 @router.route("/", methods=["GET"])
+@login_required
 def get_employees():
     session = create_session()
     employees = session.query(Employee).all()
