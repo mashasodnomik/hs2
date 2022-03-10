@@ -45,6 +45,7 @@ def create_employee():
             session.close()
             return Response(json.dumps({"error": f"{key} filed not found"}), status=status, mimetype="application/json")
     new_employee = Employee(**json_data)
+    new_employee.set_password(json_data["password"])
     session.add(new_employee)
     session.commit()
     result = json.dumps(new_employee, cls=AlchemyEncoder, ensure_ascii=False)
