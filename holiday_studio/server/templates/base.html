@@ -13,15 +13,14 @@
 <body>
 <header>
     <nav class="navbar navbar-light bg-light">
-        <h1>Миссия Колонизация Марса</h1>
-        <a class="navbar-brand" href="#">Mars one</a>
+        <h1>Студия праздника</h1>
         {% if current_user.is_authenticated %}
-            <a class="btn btn-primary" href="/site/logout">{{ current_user.full_name }}</a>>
+            <a class="btn btn-primary" href="/logout">{{ current_user.full_name }}</a>
         {% else %}
-            <a class="btn btn-primary" href="/site/login">Войти</a>>
+            <a class="btn btn-primary" href="/login">Войти</a>
         {% endif %}
     </nav>
-    <h4>И на Марсе будут яблони цвести!</h4>
+    <h4>Сделаем праздник за Вас!</h4>
 </header>
 <!-- Begin page content -->
 <main role="main" class="container">

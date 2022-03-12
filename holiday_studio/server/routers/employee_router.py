@@ -27,7 +27,6 @@ def get_employee(employee_id):
 
 
 @router.route("/", methods=["GET"])
-@login_required
 def get_employees():
     session = create_session()
     employees = session.query(Employee).all()
