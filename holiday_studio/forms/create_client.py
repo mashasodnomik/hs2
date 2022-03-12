@@ -5,7 +5,7 @@ from wtforms.validators import DataRequired
 
 class CreateClientForm(FlaskForm):
     full_name = StringField("Имя клиента", validators=[DataRequired()])
-    age = IntegerField("Возраст")
+    age = IntegerField("Возраст", validators=[])
     phone = TelField("Номер телефона", validators=[DataRequired()])
     email = EmailField("Email", validators=[DataRequired()])
     submit = SubmitField("Создать")

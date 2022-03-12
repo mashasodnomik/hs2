@@ -1,9 +1,11 @@
+import sqlalchemy
 from flask import Blueprint, request, render_template, redirect
 from flask_login import login_user, logout_user, login_required
+from sqlalchemy.exc import IntegrityError
 
 from forms.create_client import CreateClientForm
 from forms.login import LoginForm
-from models import AlchemyEncoder, Employee
+from models import AlchemyEncoder, Employee, Client
 from models import Order, create_session
 import json
 # from flask_login import current_user
@@ -33,17 +35,19 @@ def login():
 def create_client():
     create_client_form = CreateClientForm()
     if create_client_form.validate_on_submit():
-        pass
-        """
         session = create_session()
-        employee = session.query(Employee).\
-            filter(Employee.email == login_form.email.data).first()
-        if employee and employee.check_password(login_form.password.data):
-            login_user(employee)
+        client = Client(full_name=create_client_form.full_name.data,
+                        age=create_client_form.age.data,
+                        phone=create_client_form.phone.data,
+                        email=create_client_form.email.data)
+        session.add(client)
+        try:
+            session.commit()
             return redirect("/")
-        else:
-            return redirect("/site/login")
-        """
+        except IntegrityError:
+            create_client_form.email.errors.append("Email уже используется")
+            render_template("create_client.html", title="Создание клиента", form=create_client_form)
+
     return render_template("create_client.html", title="Создание клиента", form=create_client_form)
 
 
