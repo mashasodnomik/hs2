@@ -4,6 +4,7 @@
 <div>
     {% if current_user.is_authenticated %}
         <a class="btn btn-primary" href="/create_client">Создать клиента</a>
+        <a class="btn btn-primary" href="/create_order">Создать заказ</a>
     {% else %}
         <p class="font-weight-bold">Вы не авторизованы</p>
     {% endif %}
