@@ -167,6 +167,23 @@ def edit_client():
     return render_template("edit_client.html", title="Изменение клиента", form=form)
 
 
+@router.route("/edit_order", methods=["GET", "POST"])
+@login_required
+def edit_order():
+    form = EditOrderForm()
+    if form.validate_on_submit():
+        session = create_session()
+        edited_order = form.choice.data
+        order = session.query(Order).get(edited_order.id)
+        order.price = form.price.data
+        order.title = form.title.data
+        order.describtion = form.describtion.data
+        session.commit()
+        session.close()
+        return redirect("/")
+    return render_template("edit_order.html", title="Изменение заказа", form=form)
+
+
 
 
 

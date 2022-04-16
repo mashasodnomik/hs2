@@ -13,7 +13,7 @@ def get_all_orders():
 
 
 class EditOrderForm(FlaskForm):
-    choice = QuerySelectField("Order", query_factory=get_all_orders(), get_pk=lambda x: x.id, get_label=lambda x: x.title)
+    choice = QuerySelectField("Order", query_factory=get_all_orders, get_pk=lambda x: x.id, get_label=lambda x: x.title)
     price = FloatField("Цена заказа", validators=[DataRequired()])
     title = StringField("Название заказа", validators=[DataRequired()])
     describtion = StringField("Описание заказа", validators=[DataRequired()])
