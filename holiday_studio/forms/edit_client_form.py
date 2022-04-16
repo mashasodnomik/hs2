@@ -16,7 +16,7 @@ class EditClientForm(FlaskForm):
     choice = QuerySelectField(QuerySelectField("Клиент", query_factory=get_all_clients,
                                    get_pk=lambda client: client.id,
                                    get_label=lambda client: client.full_name))
-    new_name = SubmitField("Новое имя", validators=[DataRequired()])
+    full_name = SubmitField("Новое имя", validators=[DataRequired()])
     age = IntegerField("Возраст", validators=[DataRequired()])
     phone = TelField("Номер телефона", validators=[DataRequired()])
     email = EmailField("Email", validators=[DataRequired()])

@@ -152,18 +152,19 @@ def delete_order():
 @router.route("/edit_client", methods=["GET", "POST"])
 @login_required
 def edit_client():
-    edit_client_form = EditClientForm()
-    session = create_session()
-    edited_client = edit_client_form.choice.data
-    if edit_client_form.validate_on_submit():
-        edited_client.full_name = edit_client_form.new_name.data
-        edited_client.age = edit_client_form.age.data
-        edited_client.phone = edit_client_form.phone.data
-        edited_client.email = edit_client_form.email.data
+    form = EditClientForm()
+    if form.validate_on_submit():
+        session = create_session()
+        edited_client = form.choice.data
+        client = session.query(Client).get(edited_client.id)
+        client.full_name = form.full_name.data
+        client.age = form.age.data
+        client.phone = form.phone.data
+        client.email = form.email.data
         session.commit()
         session.close()
-        return redirect('/')
-    return render_template("edit_client.html", title="Изменение клиента", form=edit_client_form)
+        return redirect("/")
+    return render_template("edit_client.html", title="Изменение клиента", form=form)
 
 
 
