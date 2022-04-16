@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h3>Все заказы</h3>
+{% for order in orders %}
+<h6> {{order}} </h6>
+{% endfor %}
+
+{% endblock %}

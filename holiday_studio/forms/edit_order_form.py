@@ -12,7 +12,7 @@ def get_all_clients():
     return clients
 
 
-class CreateOrderForm(FlaskForm):
+class EditOrderForm(FlaskForm):
     price = FloatField("Цена заказа", validators=[DataRequired()])
     title = StringField("Название заказа", validators=[DataRequired()])
     describtion = StringField("Описание заказа", validators=[DataRequired()])

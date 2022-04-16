@@ -3,8 +3,23 @@
 {% block content %}
 <div>
     {% if current_user.is_authenticated %}
-        <a class="btn btn-primary" href="/create_client">Создать клиента</a>
-        <a class="btn btn-primary" href="/create_order">Создать заказ</a>
+    <div class="d-grid gap-2 d-md-block">
+        <h6>clients</h6>
+        <a class="btn btn-warning" href="/create_client">Create client</a>
+        <a class="btn btn-warning" href="/all_clients">Show all clients</a>
+        <a class="btn btn-warning" href="/edit_client">Edit client</a>
+        <a class="btn btn-warning" href="/delete_client">Delete client</a>
+    </div>
+
+
+    <div class="d-grid gap-2 d-md-block">
+        <h6>orders</h6>
+        <a class="btn btn-info" href="/create_order">Create an order</a>
+        <a class="btn btn-info" href="/all_orders">Show all orders</a>
+        <a class="btn btn-info" href="/edit_order">Edit an order</a>
+        <a class="btn btn-info" href="/delete_order">Delete an order</a>
+    </div>
+
     {% else %}
         <p class="font-weight-bold">Вы не авторизованы</p>
     {% endif %}

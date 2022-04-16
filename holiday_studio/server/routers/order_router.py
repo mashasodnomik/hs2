@@ -1,6 +1,6 @@
 from flask import Blueprint, request
-from models import AlchemyEncoder
-from models import Order, create_session
+from holiday_studio.models import AlchemyEncoder
+from holiday_studio.models import Order, create_session
 import json
 
 

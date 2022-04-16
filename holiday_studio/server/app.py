@@ -1,8 +1,8 @@
 from flask import Flask, render_template
 from flask_login import LoginManager
 
-from models import global_init, Employee, create_session
-from routers import employee_router, order_router, page_router
+from holiday_studio.models import global_init, Employee, create_session
+from holiday_studio.server.routers import employee_router, order_router, page_router
 
 
 app = Flask(__name__)

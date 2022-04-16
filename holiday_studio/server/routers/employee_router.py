@@ -1,6 +1,6 @@
 from flask import Blueprint, request, Response
-from models import AlchemyEncoder, Order, EmployeeOrder
-from models import Employee, create_session
+from holiday_studio.models import AlchemyEncoder, Order, EmployeeOrder
+from holiday_studio.models import Employee, create_session
 import json
 
 from flask_login import login_required, current_user

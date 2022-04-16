@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h3>Все клиенты</h3>
+{% for client in clients %}
+<h6> {{client}} </h6>
+{% endfor %}
+
+{% endblock %}
